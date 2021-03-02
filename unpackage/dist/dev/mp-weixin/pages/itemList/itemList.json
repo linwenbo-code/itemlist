@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "itemList",
-  "usingComponents": {
-    "u-index-list": "/uview-ui/components/u-index-list/u-index-list",
-    "u-index-anchor": "/uview-ui/components/u-index-anchor/u-index-anchor"
-  }
-}
