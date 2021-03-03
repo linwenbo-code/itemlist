@@ -9600,12 +9600,13 @@ function wxLogin(_x) {return _wxLogin.apply(this, arguments);}function _wxLogin(
                 'Content-Type': 'application/json' },
 
               data: {
+                cmdType: 1,
                 mobile: params.mobile,
                 password: params.password },
 
               success: function success(res) {
                 console.log(res.data);
-                console.log('success!!!');
+                console.log('round trip completed. ');
               } });case 3:case "end":return _context.stop();}}}, _callee);}));return _wxLogin.apply(this, arguments);}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

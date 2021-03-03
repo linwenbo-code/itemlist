@@ -20,12 +20,13 @@ export async function wxLogin(params){
 			'Content-Type': 'application/json'
 		},
 	    data: {
+			cmdType: 1,
 			mobile: params.mobile,
 			password: params.password
 		},
 	    success: function(res) {
 	        console.log(res.data);
-			console.log('success!!!')  
+			console.log('round trip completed. ')  
 		}
 	});
 }

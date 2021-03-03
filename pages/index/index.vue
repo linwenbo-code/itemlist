@@ -69,7 +69,7 @@
 								wxLogin({
 									authCode: loginRes.code,
 									mobile: that.form.mobile,
-									password: md5Libs.md5(that.form.password)
+									password: that.form.password
 								}).then(res => {
 									if (!that.$u.test.isEmpty(res.access_token)) {
 										uni.setStorageSync("token", res.access_token)

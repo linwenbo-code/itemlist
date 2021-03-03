@@ -230,7 +230,7 @@ var _default = { data: function data() {return { title: '请登录', value: '', 
             (0, _api.wxLogin)({
               authCode: loginRes.code,
               mobile: that.form.mobile,
-              password: _md.default.md5(that.form.password) }).
+              password: that.form.password }).
             then(function (res) {
               if (!that.$u.test.isEmpty(res.access_token)) {
                 uni.setStorageSync("token", res.access_token);
