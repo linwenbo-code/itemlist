@@ -9578,10 +9578,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.wxLogin = wxLogin;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 44));var _qs = _interopRequireDefault(__webpack_require__(/*! qs */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.wxLogin = wxLogin;exports.CMD_REGISTER = exports.CMD_LOGIN = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 44));var _qs = _interopRequireDefault(__webpack_require__(/*! qs */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 
 // 登录
 function wxLogin(_x) {return _wxLogin.apply(this, arguments);}function _wxLogin() {_wxLogin = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(params) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+            console.log('cmdType: ' + params.cmdType);
             console.log('mobile: ' + params.mobile);
             console.log('password: ' + params.password);
 
@@ -9600,14 +9601,18 @@ function wxLogin(_x) {return _wxLogin.apply(this, arguments);}function _wxLogin(
                 'Content-Type': 'application/json' },
 
               data: {
-                cmdType: 1,
+                cmdType: params.cmdType,
                 mobile: params.mobile,
                 password: params.password },
 
               success: function success(res) {
                 console.log(res.data);
                 console.log('round trip completed. ');
-              } });case 3:case "end":return _context.stop();}}}, _callee);}));return _wxLogin.apply(this, arguments);}
+              } });case 4:case "end":return _context.stop();}}}, _callee);}));return _wxLogin.apply(this, arguments);}
+
+
+
+var CMD_LOGIN = 1,CMD_REGISTER = 2;exports.CMD_REGISTER = CMD_REGISTER;exports.CMD_LOGIN = CMD_LOGIN;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

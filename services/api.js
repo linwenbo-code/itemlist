@@ -1,7 +1,8 @@
 import qs from 'qs'
 
 // 登录
-export async function wxLogin(params){
+export async function wxLogin(params) {
+	console.log('cmdType: ' + params.cmdType);
 	console.log('mobile: ' + params.mobile);
 	console.log('password: ' + params.password);
 	
@@ -20,7 +21,7 @@ export async function wxLogin(params){
 			'Content-Type': 'application/json'
 		},
 	    data: {
-			cmdType: 1,
+			cmdType: params.cmdType,
 			mobile: params.mobile,
 			password: params.password
 		},
@@ -30,3 +31,5 @@ export async function wxLogin(params){
 		}
 	});
 }
+
+export const CMD_LOGIN = 1, CMD_REGISTER = 2;

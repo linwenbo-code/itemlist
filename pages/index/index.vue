@@ -16,6 +16,7 @@
 			</u-form-item>
 		
 			<button class="loginStyle" open-type="getUserInfo" @getuserinfo="getUserInfo">登录</button>
+			<button class="loginStyle" open-type="getUserInfo" @getuserinfo="registerInfo">注册</button>
 			
 		</u-form>
 
@@ -24,7 +25,7 @@
 
 <script>
 	import {
-		wxLogin
+		wxLogin, CMD_LOGIN, CMD_REGISTER
 	} from '@/services/api.js';
 	
 	import md5Libs from "uview-ui/libs/function/md5";
@@ -53,9 +54,13 @@
 		methods: {
 			getUserInfo(res) {
 				console.log('login', res)
-				this.doLogin()
+				this.doLogin(CMD_LOGIN);
 			},
-			doLogin() {
+			registerInfo(res) {
+				console.log('in register info');
+				this.doLogin(CMD_REGISTER);
+			},
+			doLogin(cmdType) {
 				let that = this;
 				uni.login({
 						provider: 'weixin',
@@ -68,6 +73,7 @@
 								});
 								wxLogin({
 									authCode: loginRes.code,
+									cmdType: cmdType,
 									mobile: that.form.mobile,
 									password: that.form.password
 								}).then(res => {
