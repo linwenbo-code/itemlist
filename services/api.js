@@ -14,7 +14,7 @@ export async function wxLogin(params) {
 	*/
 	
 	// 请求
-	uni.request({
+	return uni.request({
 	    url: 'http://localhost:8888', 
 		method: 'POST',
 		header: {

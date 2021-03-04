@@ -95,14 +95,17 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uToast: function() {
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 71))
+    },
     uForm: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-form/u-form */ "uview-ui/components/u-form/u-form").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-form/u-form.vue */ 55))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-form/u-form */ "uview-ui/components/u-form/u-form").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-form/u-form.vue */ 78))
     },
     uFormItem: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-form-item/u-form-item.vue */ 62))
+      return Promise.all(/*! import() | uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-form-item/u-form-item.vue */ 85))
     },
     uInput: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-input/u-input.vue */ 73))
+      return Promise.all(/*! import() | uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-input/u-input.vue */ 96))
     }
   }
 } catch (e) {
@@ -185,6 +188,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _api = __webpack_require__(/*! @/services/api.js */ 43);
 
 
@@ -214,7 +221,14 @@ var _md = _interopRequireDefault(__webpack_require__(/*! uview-ui/libs/function/
 //
 //
 //
-var _default = { data: function data() {return { title: '请登录', value: '', type: 'text', border: true, pValue: '', ptype: 'password', passwordIcon: true, pborder: true, form: { mobile: '', password: '', loginType: 'customer' } };}, onLoad: function onLoad() {}, methods: { getUserInfo: function getUserInfo(res) {console.log('login', res);
+//
+//
+//
+//
+var _default = { data: function data() {return { title: '请登录', value: '', type: 'text', border: true, pValue: '', ptype: 'password', passwordIcon: true, pborder: true, form: { mobile: '', password: '', loginType: 'customer' } };}, onLoad: function onLoad() {}, methods: { showToast: function showToast() {this.$refs.uToast.show({ title: '登录成功', type: 'success', url: '/pages/itemlist/itemlist' });
+    },
+    getUserInfo: function getUserInfo(res) {
+      console.log('login', res);
       this.doLogin(_api.CMD_LOGIN);
     },
     registerInfo: function registerInfo(res) {
@@ -225,7 +239,7 @@ var _default = { data: function data() {return { title: '请登录', value: '', 
       var that = this;
       uni.login({
         provider: 'weixin',
-        success: function success(loginRes) {var _this = this;
+        success: function success(loginRes) {
           // that.switchPage()
 
           if (loginRes.code !== null && loginRes.code !== '') {
@@ -238,19 +252,11 @@ var _default = { data: function data() {return { title: '请登录', value: '', 
               mobile: that.form.mobile,
               password: that.form.password }).
             then(function (res) {
-              if (!that.$u.test.isEmpty(res.access_token)) {
-                uni.setStorageSync("token", res.access_token);
-                that.$u.vuex("vuex_has_login", true);
-                // that.$u.vuex("vuex_ppd", md5Libs.md5(that.form.password))
-                that.$u.vuex("vuex_user", res);
-                that.$u.vuex("vuex_userid", res.user_id);
+              console.log('res is ' + res);
+              that.showToast();
+              uni.redirectTo({
+                url: '/pages/itemList/itemList' });
 
-                that.switchPage();
-              } else {
-                uni.clearStorageSync();
-                _this.$u.toast('登录失败');
-              }
-              uni.hideLoading();
             }).finally(function () {
               uni.hideLoading();
             });

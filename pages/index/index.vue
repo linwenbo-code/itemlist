@@ -4,6 +4,10 @@
 		<view class="text-area">
 			<text class="title">{{title}}</text>
 		</view>
+		
+		<view>
+			<u-toast ref="uToast"/>
+		</view>
 
 		<u-form :model="form" ref="uForm" class="my-form">
 			<u-form-item :leftIconStyle="{color: '#888', fontSize: '32rpx'}" left-icon="account-fill" label-width="120"
@@ -52,6 +56,13 @@
 
 		},
 		methods: {
+			showToast(){
+				this.$refs.uToast.show({
+									title:'登录成功',
+									type:'success',
+									url:'/pages/itemlist/itemlist'
+				})
+			},
 			getUserInfo(res) {
 				console.log('login', res)
 				this.doLogin(CMD_LOGIN);
@@ -77,19 +88,11 @@
 									mobile: that.form.mobile,
 									password: that.form.password
 								}).then(res => {
-									if (!that.$u.test.isEmpty(res.access_token)) {
-										uni.setStorageSync("token", res.access_token)
-										that.$u.vuex("vuex_has_login", true)
-										// that.$u.vuex("vuex_ppd", md5Libs.md5(that.form.password))
-										that.$u.vuex("vuex_user", res)
-											that.$u.vuex("vuex_userid", res.user_id)
-									
-										that.switchPage()
-									}else{
-										uni.clearStorageSync()
-										this.$u.toast('登录失败');
-									}
-									uni.hideLoading()
+									console.log('res is ' + res);
+									that.showToast();
+									uni.redirectTo({
+										url: '/pages/itemList/itemList'
+									});
 								}).finally(() => {
 									uni.hideLoading()
 								})

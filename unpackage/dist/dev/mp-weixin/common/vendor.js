@@ -9594,7 +9594,7 @@ function wxLogin(_x) {return _wxLogin.apply(this, arguments);}function _wxLogin(
                                                          */
 
             // 请求
-            uni.request({
+            return _context.abrupt("return", uni.request({
               url: 'http://localhost:8888',
               method: 'POST',
               header: {
@@ -9608,7 +9608,7 @@ function wxLogin(_x) {return _wxLogin.apply(this, arguments);}function _wxLogin(
               success: function success(res) {
                 console.log(res.data);
                 console.log('round trip completed. ');
-              } });case 4:case "end":return _context.stop();}}}, _callee);}));return _wxLogin.apply(this, arguments);}
+              } }));case 4:case "end":return _context.stop();}}}, _callee);}));return _wxLogin.apply(this, arguments);}
 
 
 
@@ -11492,7 +11492,30 @@ module.exports = {
 /* 64 */,
 /* 65 */,
 /* 66 */,
-/* 67 */
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */
 /*!*****************************************************************************************!*\
   !*** /Users/wenbolin/Documents/HBuilderProjects/itemlist/uview-ui/libs/util/emitter.js ***!
   \*****************************************************************************************/
@@ -11551,7 +11574,7 @@ function _broadcast(componentName, eventName, params) {
     } } };exports.default = _default;
 
 /***/ }),
-/* 68 */
+/* 91 */
 /*!*************************************************************************************************!*\
   !*** /Users/wenbolin/Documents/HBuilderProjects/itemlist/uview-ui/libs/util/async-validator.js ***!
   \*************************************************************************************************/
@@ -12914,10 +12937,10 @@ Schema.warning = warning;
 Schema.messages = messages;var _default =
 
 Schema;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 69)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 92)))
 
 /***/ }),
-/* 69 */
+/* 92 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -12948,7 +12971,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 70);
+        if (!path) path = __webpack_require__(/*! path */ 93);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -12961,7 +12984,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 70 */
+/* 93 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -13271,7 +13294,7 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 69)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 92)))
 
 /***/ })
 ]]);

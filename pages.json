@@ -3,7 +3,18 @@
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-	/*
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path": "pages/itemList/itemList",
+			"style": {
+				"navigationBarTitleText": "itemList"
+			}
+		},
 		{
 			"path" : "pages/addItem/addItem",
 			"style" :                                                                                    
@@ -12,21 +23,8 @@
 				"enablePullDownRefresh": false
 			}
 			
-		},
-		{
-			"path": "pages/itemList/itemList",
-			"style": {
-				"navigationBarTitleText": "itemList"
-			}
-		},
-		*/
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
 		}
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
